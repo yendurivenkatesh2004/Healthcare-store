@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>HealthCare Store</title>
+
+<style>
+body{
+font-family:Arial;
+margin:0;
+background:#f5f5f5;
+text-align:center;
+}
+
+h1{color:#e53935;}
+
+nav{
+background:white;
+padding:18px;
+}
+
+nav a{
+margin:15px;
+text-decoration:none;
+color:#333;
+}
+
+.hero{
+background:#ffe8e8;
+padding:35px;
+}
+
+input{
+padding:12px;
+width:250px;
+border:1px solid #aaa;
+border-radius:6px;
+}
+
+button{
+padding:11px 18px;
+background:#e53935;
+color:white;
+border:0;
+border-radius:6px;
+cursor:pointer;
+}
+
+button:hover{
+background:#b71c1c;
+}
+
+.products{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.card{
+background:white;
+width:220px;
+padding:15px;
+margin:15px;
+border-radius:10px;
+box-shadow:0 2px 8px #ccc;
+}
+
+.card img{
+width:100%;
+height:150px;
+object-fit:cover;
+border-radius:8px;
+}
+
+.cart{
+background:#222;
+color:white;
+padding:20px;
+margin-top:30px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>HealthCare</h1>
+
+<nav>
+<a href="#">Home</a>
+<a href="#products">Medicines</a>
+<a href="#">Health Products</a>
+<a href="#">Login</a>
+</nav>
+
+<div class="hero">
+
+<h2>Your Health, Our Priority</h2>
+
+<input id="search" placeholder="Search medicine">
+
+<button onclick="search()">Search</button>
+
+<p id="message"></p>
+
+</div>
+
+<h2>Popular Products</h2>
+
+<div class="products" id="products">
+
+<div class="card">
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSt9UO9srMLFRoMcwVB5b9TDrMcyluCvpZhehf7syvrqg&s=10">
+
+<h3>Vitamins</h3>
+
+<p>₹299</p>
+
+<button onclick="add()">Add to Cart</button>
+
+</div>
+
+<div class="card">
+
+<img src="https://www.shutterstock.com/image-photo/alternative-medicine-herbal-organic-capsule-260nw-2475213879.jpg">
+
+<h3>Health Supplements</h3>
+
+<p>₹399</p>
+
+<button onclick="add()">Add to Cart</button>
+
+</div>
+
+<div class="card">
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE5yanpCRmrxbbUKsIMLtfB2Mz-EB-QFjTsR2Jc3sQJA&s=10">
+
+<h3>Skin Care</h3>
+
+<p>₹249</p>
+
+<button onclick="add()">Add to Cart</button>
+
+</div>
+
+</div>
+
+<div class="cart">
+
+<h2>🛒 Cart</h2>
+
+<p>Items: <b id="count">0</b></p>
+
+<button onclick="checkout()">Checkout</button>
+
+</div>
+
+<script>
+
+let count=0;
+
+function add(){
+count++;
+document.getElementById("count").innerHTML=count;
+alert("Product added!");
+}
+
+function search(){
+
+let x=document.getElementById("search").value;
+
+if(x==""){
+document.getElementById("message").innerHTML=
+"Please enter a medicine name.";
+}
+else{
+document.getElementById("message").innerHTML=
+"Searching for: "+x;
+}
+
+}
+
+function checkout(){
+
+if(count==0)
+alert("Cart is empty!");
+else
+alert("Checkout: "+count+" item(s)");
+
+}
+
+</script>
+
+</body>
+</html>
